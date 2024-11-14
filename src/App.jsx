@@ -1,7 +1,7 @@
 import Player from "./components/Player.jsx";
 import GameBoard from './components/GameBoard.jsx';
 import Log from './components/Log.jsx';
-import GameOver from "./components/gameOver.jsx";
+import GameOver from "./components/GameOver.jsx";
 import { useState } from "react";
 
 function winner(turns){
