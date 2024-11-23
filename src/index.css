@@ -34,22 +34,23 @@ header {
 }
 
 header img {
-  width: 8rem;
+  width: 10vw;
   object-fit: contain;
-  margin: 3rem auto 1rem auto;
+  margin-top: 0.5vh;
   filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
 }
 
-h1 {
+header > h1 {
   font-family: 'Caprasimo', cursive;
-  font-size: 3rem;
-  margin: 0 auto 3rem auto;
+  font-size: 5vw;
+  margin-top: 0.2vh;
+  margin-bottom:0.2vh;
   color: #3f3b00;
 }
 
 #game-container {
   max-width: 45rem;
-  margin: 3rem auto;
+  margin: 2vh auto;
   padding: 2rem;
   border-radius: 6px;
   background: linear-gradient(#383624, #282617);
@@ -109,7 +110,7 @@ h1 {
 
 .player-name {
   display: inline-block;
-  width: 10rem;
+  width: 80%;
   font-size: 1rem;
   color: #e1dec7;
   text-transform: uppercase;
@@ -160,6 +161,7 @@ ol {
 }
 
 #game-board {
+  max-width:80vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -179,15 +181,18 @@ ol {
 }
 
 #game-board button {
-  width: 8rem;
-  height: 8rem;
+  width: 20vw;
+  height: 20vw;
+  display:flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   background: #aca788;
   color: #3f3b00;
-  font-size: 5rem;
+  font-size: 10vw;
   cursor: pointer;
   font-family: 'Caprasimo', cursive;
-  padding: 1rem;
+  /* padding: 1rem; */
 }
 
 #game-over {
@@ -242,6 +247,7 @@ ol {
 #log {
   max-width: 20rem;
   color: #3f3b00;
+  background-color: #e1dec7;
   list-style: none;
   margin: 2rem auto;
   padding: 0;
