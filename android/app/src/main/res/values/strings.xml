@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">noughts and crosses</string>
+    <string name="title_activity_main">noughts and crosses</string>
+    <string name="package_name">noughts.and.crosses</string>
+    <string name="custom_url_scheme">noughts.and.crosses</string>
+</resources>

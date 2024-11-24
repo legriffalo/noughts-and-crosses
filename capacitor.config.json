@@ -1,0 +1,6 @@
+{
+  "appId": "noughts.and.crosses",
+  "appName": "noughts and crosses",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
