@@ -11,7 +11,7 @@ Current Android APKs are in 00-APKs if you want to test.
 - 🔄 Feature 2: Attractive GUI and game log
 - 🛠️ Feature 3: Multiplayer online coming soon...
 
-### 🎯 Why Use [Project Name]?
+### 🎯 Why Use this project?
 - It's a bit of fun
 - It's a good example to pick apart to learn capacitor.js
 
