@@ -26,7 +26,7 @@ Current Android APKs are in 00-APKs if you want to test.
 </p>
 
 ### 📈 Activity Graph
-![Activity Graph](https://activity-graph.herokuapp.com/graph?username=yourusername&theme=github)
+![Activity Graph](https://activity-graph.herokuapp.com/graph?username=legriffalo&theme=github)
 
 ---
-⭐️ From [yourusername](https://github.com/yourusername)
+⭐️ From [yourusername](https://github.com/ylegriffalo)
