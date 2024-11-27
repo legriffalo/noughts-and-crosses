@@ -3,7 +3,7 @@
 ## 📝 Project Description
 
 ### What is Noughts and crosses?
-It's a simple-ish game of naughts and crosses Tic-Tac-Toe to it's US friends, built in react, JavaScript and Capacitor
+It's a simple-ish game of naughts and crosses Tic-Tac-Toe to its US friends, built in react, JavaScript and Capacitor
 Current Android APKs are in 00-APKs if you want to test.
 
 ### ✨ Key Features
