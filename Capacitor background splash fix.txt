@@ -1,0 +1,9 @@
+in => android\app\src\main\res\values\styles.xml
+
+
+<style name="AppTheme.NoActionBarLaunch" parent="Theme.SplashScreen">
+        <item name="android:background">@drawable/splash</item>
+        <item name="android:windowSplashScreenBackground">#FFDE21</item>
+        <item name="windowSplashScreenBackground">#FFDE21</item>
+        <item name="postSplashScreenTheme">@style/AppTheme.NoActionBar</item>
+    </style>
