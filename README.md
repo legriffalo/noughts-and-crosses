@@ -1,25 +1,26 @@
-# 👋 Hi, here's a simple stopwatch App
+# 👋 Hei, welcome to Noughts and crosses
 
 ## 📝 Project Description
 
 ### What is Noughts and crosses?
-I built this from a VERY old project I made when I was starting out with web coding as a way to test the capacitor framework using the most minimal file/tool set I could.
-
-App uses a single file with bootstrap 4 (CDN), JS, and JQuery(CDN) to make a stopwatch then this is transpiled to Java for the final build using capacitor.
+It's a simple-ish game of naughts and crosses Tic-Tac-Toe to it's US friends, built in react, JavaScript and Capacitor
+Current Android APKs are in 00-APKs if you want to test.
 
 ### ✨ Key Features
 - 🎯 Feature 1: Native code transpiled through Capacitor
-- 🔄 Feature 2: functional
+- 🔄 Feature 2: Attractive GUI and game log
+- 🛠️ Feature 3: Multiplayer online coming soon...
 
 ### 🎯 Why Use this project?
-- I wouldn't 😂
-- It's a good "simplest case possible" example to pick apart to learn capacitor.js
+- It's a bit of fun
+- It's a good example to pick apart to learn capacitor.js
 
 ### Want to install the APK?
 
 <a href="path-to-release-exe">
   <img src="https://img.shields.io/badge/Download-Nordic_Keyboard_Converter-blue?style=for-the-badge&logo=windows"/>
 </a>
+
 
 ### 🤝 Connect With Me
 <p align="left">
