@@ -60,19 +60,22 @@ header > h1 {
 
 #players {
   list-style: none;
+  width:90%;
   padding: 0;
-  margin: 1rem 0;
+  margin: 2vh 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 3vw;
+  margin-left: 5%;
 }
 
 #players li {
   display: flex;
   align-items: center;
-  width: 50%;
+  width: 37vw;
   border: 2px solid transparent;
+  padding-right: 2vw;
 }
 
 #players.highlight-player li.active {
@@ -86,15 +89,16 @@ header > h1 {
 }
 
 #players button {
-  width: 3rem;
+  width: 10%;
   border: none;
   background: none;
   color: #c3ba78;
-  font-size: 0.9rem;
+  font-size: 3vw;
   cursor: pointer;
   transition: color 0.2s;
-  padding: 0.5rem 0.25rem 0.25rem 0.25rem;
+  /* padding: 0.5rem 0.25rem 0.25rem 0.25rem; */
   text-align: center;
+  /* margin-right: 3vw; */
 }
 
 #players button:hover {
@@ -103,19 +107,21 @@ header > h1 {
 
 .player {
   border: 2px solid transparent;
-  padding: 0.5rem;
+  padding: 0.5vw;
   border-radius: 4px;
   font-weight: bold;
+  width:80%;
 }
 
 .player-name {
   display: inline-block;
   width: 80%;
-  font-size: 1rem;
+  font-size: 3vw;
   color: #e1dec7;
+  border-style:solid;
   text-transform: uppercase;
   margin: 0;
-  padding: 0.5rem;
+  padding: 0.5vw;
   border-radius: 4px;
   text-overflow: ellipsis;
   text-align: center;
@@ -123,10 +129,13 @@ header > h1 {
 
 .player input {
   font: inherit;
-  font-size: 1rem;
-  width: 10rem;
+  display: inline-block;
+  border-style:solid;
+  border-color: transparent;
+  font-size: 3vw;
+  width: 80%;
   border: none;
-  padding: 0.5rem;
+  padding: 0.5vw;
   animation: pulse-text 2s infinite;
   background-color: #46432f;
   text-align: center;
@@ -134,8 +143,8 @@ header > h1 {
 }
 
 .player-symbol {
-  margin-left: 1rem;
-  font-size: 1rem;
+  margin-left: 5vw;
+  font-size: 6vw;
   color: #e1dec7;
 }
 
