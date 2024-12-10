@@ -18,7 +18,7 @@ Current Android APKs are in 00-APKs if you want to test.
 ### Want to install the APK?
 
 <a href="https://github.com/legriffalo/noughts-and-crosses/releases/tag/V1.0">
-  <img src="https://img.shields.io/badge/Download-Nordic_Keyboard_Converter-blue?style=for-the-badge&logo=windows"/>
+  <img src="https://img.shields.io/badge/Try-out-the-APK-blue?style=for-the-badge&logo=windows"/>
 </a>
 
 
