@@ -4,9 +4,9 @@ import Log from './components/Log.jsx';
 import GameOver from "./components/GameOver.jsx";
 import { useState } from "react";
 
-function winner(turns){
+function winner(turns, startPlayer){
 
-const previousPlayer = [deriveActivePlayer(turns)==='O'? 'X':'O'];
+const previousPlayer = [deriveActivePlayer(turns,startPlayer )==='O'? 'X':'O'];
 console.log(previousPlayer);
 let check = turns.filter(turn => turn.player == previousPlayer );
 console.log(check);
@@ -19,31 +19,48 @@ for (let i = 0; i<3; i++){
   || check.filter(turn=>turn.square.row == turn.square.col).length >2
   || check.filter(turn=>turn.square.row == 2-turn.square.col).length > 2
   )
+
   {
     console.log('win triggered')
     // console.log(`${previousPlayer} won`)
     return previousPlayer
-}
+  }
 else{
   console.log('no winners yet!')
 }}}
 
-function deriveActivePlayer(gameTurns){
 
-  let currentPlayer = 'X';
+
+
+
+
+function deriveActivePlayer(gameTurns, startPlayer){
+  console.log(startPlayer);
+  let currentPlayer = startPlayer===''? 'X':startPlayer;
+  // console.log(currentPlayer);
+  // let currentPlayer = 'X';
   if (gameTurns.length > 0 && gameTurns[0].player ==='X'){
     currentPlayer='O';}
+    else if (gameTurns.length > 0 && gameTurns[0].player ==='O'){
+      currentPlayer='X';
+    }
     // console.log(currentPlayer);
     return currentPlayer;
 }
+
+
+
+
 
 
 function App() {
 const [gameTurns, setGameTurns] = useState([])
 // const [ activePlayer, setActivePlayer ] = useState('X');
 
-const currentPlayer = deriveActivePlayer(gameTurns);
-const aWinner = winner(gameTurns)
+const [startPlayer, setStartPlayer] = useState(''); 
+
+const currentPlayer = deriveActivePlayer(gameTurns, startPlayer);
+const aWinner = winner(gameTurns,startPlayer)
 const hasDraw = gameTurns.length === 9 && !aWinner
 
 function handleSelectSquare(rowIndex,colIndex,){
@@ -53,7 +70,7 @@ function handleSelectSquare(rowIndex,colIndex,){
 
 setGameTurns((prevTurns)=>{
 
-  const currentPlayer = deriveActivePlayer(prevTurns);
+  const currentPlayer = deriveActivePlayer(prevTurns, startPlayer);
   // console.log(currentPlayer)
   // if (prevTurns.length > 0 && prevTurns[0].player ==='X'){
   //   currentPlayer='O';
@@ -69,10 +86,18 @@ return updatedTurns;
 })
 } ;
 
-function handleRestart(){
+
+
+function handleRestart(startPlayer){
+  console.log(startPlayer)
+  
+  setStartPlayer(prevStarter => (prevStarter === 'X' || prevStarter === '') ? 'O' : 'X');
+  console.log(startPlayer) 
   setGameTurns([]);
 }
-console.log(winner(gameTurns))
+
+
+console.log(winner(gameTurns,startPlayer))
 // const Winner = winner(gameTurns);
 
   return (
@@ -84,10 +109,12 @@ console.log(winner(gameTurns))
 
       {/* Players list */}
       <ol id = 'players' className='highlight-player'>
-      <Player initialName='player1' symbol = 'O' isActive = {currentPlayer==='X'}/>
-      <Player initialName='player2' symbol = 'X' isActive = {currentPlayer==='O'}/>
+      <Player initialName='player1' symbol = 'X' isActive = {currentPlayer==='X'}/>
+      <Player initialName='player2' symbol = 'O' isActive = {currentPlayer==='O'}/>
       </ol> 
   {(aWinner||hasDraw)&& <GameOver winner ={aWinner} onRestart ={handleRestart} />}
+
+
   <GameBoard 
   onSelectSquare={handleSelectSquare} 
   // activePlayerSymbol = {activePlayer}

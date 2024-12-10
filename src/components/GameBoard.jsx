@@ -32,6 +32,7 @@ const initialGameBoard = [
 
     // }
     return (
+      
       <ol id="game-board">
         {gameBoard.map((row, rowIndex) => (
           <li key={rowIndex}>
