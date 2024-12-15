@@ -1,33 +1,38 @@
 import Player from "./components/Player.jsx";
+import ScoreBoard from "./components/ScoreBoard";
 import GameBoard from './components/GameBoard.jsx';
 import Log from './components/Log.jsx';
 import GameOver from "./components/GameOver.jsx";
 import { useState } from "react";
+import { useEffect } from "react";
+
+
 
 function winner(turns, startPlayer){
 
-const previousPlayer = [deriveActivePlayer(turns,startPlayer )==='O'? 'X':'O'];
-console.log(previousPlayer);
-let check = turns.filter(turn => turn.player == previousPlayer );
-console.log(check);
+  const previousPlayer = [deriveActivePlayer(turns,startPlayer )==='O'? 'X':'O'];
+  console.log(previousPlayer);
+  let check = turns.filter(turn => turn.player == previousPlayer );
+  console.log(check);
 
-for (let i = 0; i<3; i++){
-  // console.log(`i is curretly ${i}`)
-  //filter to each player and check
-  if(check.filter(turn=>turn.square.row == i).length > 2
-  || check.filter(turn=>turn.square.col == i).length > 2
-  || check.filter(turn=>turn.square.row == turn.square.col).length >2
-  || check.filter(turn=>turn.square.row == 2-turn.square.col).length > 2
-  )
+  for (let i = 0; i<3; i++){
+    // console.log(`i is curretly ${i}`)
+    //filter to each player and check
+    if(check.filter(turn=>turn.square.row == i).length > 2
+    || check.filter(turn=>turn.square.col == i).length > 2
+    || check.filter(turn=>turn.square.row == turn.square.col).length >2
+    || check.filter(turn=>turn.square.row == 2-turn.square.col).length > 2
+    )
 
-  {
-    console.log('win triggered')
-    // console.log(`${previousPlayer} won`)
-    return previousPlayer
-  }
-else{
-  console.log('no winners yet!')
-}}}
+    {
+      console.log('win triggered')
+      // console.log(`${previousPlayer} won`)
+      return previousPlayer
+    }
+  else{
+    console.log('no winners yet!')
+  }}
+}
 
 
 
@@ -49,56 +54,54 @@ function deriveActivePlayer(gameTurns, startPlayer){
 }
 
 
-
-
-
-
 function App() {
-const [gameTurns, setGameTurns] = useState([])
-// const [ activePlayer, setActivePlayer ] = useState('X');
+  const [gameTurns, setGameTurns] = useState([])
+  const [startPlayer, setStartPlayer] = useState(''); 
+  const currentPlayer = deriveActivePlayer(gameTurns, startPlayer);
+  const [scores, setScores] = useState({ X: 0, O: 0 });
+  const aWinner = winner(gameTurns,startPlayer)
+  const [hasScoreBeenUpdated, setHasScoreBeenUpdated] = useState(false);
 
-const [startPlayer, setStartPlayer] = useState(''); 
+  useEffect(() => {
+    if (aWinner && !hasScoreBeenUpdated) {
+      setScores(prevScores => ({
+        ...prevScores,
+        [aWinner]: prevScores[aWinner] + 1
+      }));
+      setHasScoreBeenUpdated(true);
 
-const currentPlayer = deriveActivePlayer(gameTurns, startPlayer);
-const aWinner = winner(gameTurns,startPlayer)
-const hasDraw = gameTurns.length === 9 && !aWinner
+    }
+  }, [aWinner]);
 
-function handleSelectSquare(rowIndex,colIndex,){
-// setActivePlayer((curActivePlayer)=> curActivePlayer === 'X' ? 'O':'X');
-// console.log(activePlayer==='X')
-
-
-setGameTurns((prevTurns)=>{
-
-  const currentPlayer = deriveActivePlayer(prevTurns, startPlayer);
-  // console.log(currentPlayer)
-  // if (prevTurns.length > 0 && prevTurns[0].player ==='X'){
-  //   currentPlayer='O';
-  // }
-
-  
-  const updatedTurns = [
-    {square: { row: rowIndex, col: colIndex }, player: currentPlayer}, ...prevTurns];
-    // console.log(updatedTurns);
-    // const checkWinner = winner(updatedTurns)
-
-return updatedTurns;
-})
-} ;
+  const hasDraw = gameTurns.length === 9 && !aWinner
 
 
+  function handleSelectSquare(rowIndex,colIndex,){
+    setGameTurns((prevTurns)=>{
 
-function handleRestart(startPlayer){
-  console.log(startPlayer)
-  
-  setStartPlayer(prevStarter => (prevStarter === 'X' || prevStarter === '') ? 'O' : 'X');
-  console.log(startPlayer) 
-  setGameTurns([]);
-}
+      const currentPlayer = deriveActivePlayer(prevTurns, startPlayer);     
+      const updatedTurns = [
+        {square: { row: rowIndex, col: colIndex }, player: currentPlayer}, ...prevTurns];
+
+    return updatedTurns;
+    })
+  } ;
 
 
-console.log(winner(gameTurns,startPlayer))
-// const Winner = winner(gameTurns);
+
+  function handleRestart(startPlayer){
+    console.log(startPlayer)
+    
+    setStartPlayer(prevStarter => (prevStarter === 'X' || prevStarter === '') ? 'O' : 'X');
+    console.log(startPlayer) 
+    setGameTurns([]);
+    setHasScoreBeenUpdated(false); // Reset the flag
+
+  }
+
+
+  console.log(winner(gameTurns,startPlayer))
+  // const Winner = winner(gameTurns);
 
   return (
     <div>
@@ -120,6 +123,9 @@ console.log(winner(gameTurns,startPlayer))
   // activePlayerSymbol = {activePlayer}
   turns = {gameTurns}
   /> 
+
+  <ScoreBoard scores = {scores}/>
+
   </div>
   <Log turns = {gameTurns}/>
 

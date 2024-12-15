@@ -176,7 +176,7 @@ ol {
   justify-content: center;
   gap: 1vw;
   margin: auto;
-  margin-bottom: 3vh;
+  margin-bottom: 1vh;
   padding: 0;
   flex-direction: column;
 }
@@ -203,6 +203,35 @@ ol {
   cursor: pointer;
   font-family: 'Caprasimo', cursive;
   /* padding: 1rem; */
+}
+
+.scores{
+    width: 70%;
+    margin-left: 15%;
+    height: 10vw;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:10vw;
+    border: none;
+    background: #aca788;
+    color: #3f3b00;
+    font-size: 3vw;
+    margin-bottom: 1vh;
+}
+
+.scores>b{
+  font-weight: 100;
+}
+
+.title h4{
+  width: 25%;
+  margin:auto;
+  /* border-style:solid; */
+  font-size: 3vw;
+  text-align: center;
+  color: #aca788;;
+
 }
 
 #game-over {
