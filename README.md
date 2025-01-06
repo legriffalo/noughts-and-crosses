@@ -17,7 +17,7 @@ Current Android APKs are in 00-APKs if you want to test.
 
 ### Want to install the APK?
 
-<a href="https://github.com/legriffalo/noughts-and-crosses/releases/tag/v1.1.2">
+<a href="https://github.com/legriffalo/noughts-and-crosses/releases/tag/v1.1.3">
   <img src="https://img.shields.io/badge/Try_out_the_APK-blue?style=for-the-badge&logo=windows"/>
 </a>
 
